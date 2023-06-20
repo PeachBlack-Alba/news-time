@@ -20,13 +20,10 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void _navigateToHome() async {
     // this is an async function because we need to use the time here
-    await Future.delayed(const Duration(milliseconds: 19900), () {});
+    await Future.delayed(const Duration(milliseconds: 1500), () {});
     // after this delay of 1.5 sec we want to navigate to home
     Navigator.of(context).pushReplacement(
-      MaterialPageRoute(
-          builder: (context) => const MyHomePage(
-                title: 'LogIn?',
-              )),
+      MaterialPageRoute(builder: (context) => MyHomePage()),
     );
     // we use pushReplacement instead of push because we want to avoid the user going back to this screen when pressing the back button
   }
