@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/features/login/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,8 +55,9 @@ class MyHomePage extends StatelessWidget {
                   const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
-                      // TODO: Implement login functionality
-                    },
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) =>  LoginScreen()),
+                      );                    },
                     style: ElevatedButton.styleFrom(
                       side: const BorderSide(
                         width: 2.0,
