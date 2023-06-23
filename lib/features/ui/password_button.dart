@@ -41,7 +41,7 @@ class PasswordButton extends StatelessWidget {
         ),
         label: Text(
           label,
-          style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: AppColors.lightGrey4),
+          style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: AppColors.lightGrey4),
         ),
       ),
     );

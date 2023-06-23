@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/features/browseNews/browse_news_page.dart';
 import 'package:news_app/features/ui/email_button.dart';
 import 'package:news_app/features/ui/sign_in_button.dart';
 
 import '../ui/colors.dart';
 import '../ui/password_button.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +66,11 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10.0),
-            SignInButton(backgroundColor: AppColors.lightGrey1, onPressed: () {}, text: 'Sign In'),
+            SignInButton(backgroundColor: AppColors.lightGrey1, onPressed: () {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) =>   const BrowseNewsPage()),
+              );
+            }, text: 'Sign In'),
             const SizedBox(height: 10.0),
             TextButton(
               onPressed: () {
