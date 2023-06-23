@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../ui/colors.dart';
 
-
 class BrowseNewsPage extends StatefulWidget {
   const BrowseNewsPage({Key? key}) : super(key: key);
 
@@ -25,7 +24,7 @@ class _BrowseNewsPageState extends State<BrowseNewsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(color: AppColors.lightGrey4),
+        decoration: const BoxDecoration(color: AppColors.black),
         padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,16 +34,16 @@ class _BrowseNewsPageState extends State<BrowseNewsPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Browse',
-                    style: const TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.white),
+                    style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.white),
                   ),
                   const Text(
                     "Discover what has happened today",
                     style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.white),
                   ),
                   const SizedBox(height: 8),
-                  SearchBarTab(),
+                  const SearchBarTab(),
                   const SizedBox(height: 16),
                   ListTabView(
                     selectedIndex: _selectedIndex,
@@ -64,7 +63,10 @@ class _BrowseNewsPageState extends State<BrowseNewsPage> {
                 itemBuilder: (context, index) {
                   final item = newsItems[tabItems[_selectedIndex]]![index];
                   return ListTile(
-                    title: Text(item),
+                    title: Text(
+                      item,
+                      style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.white),
+                    ),
                   );
                 },
               ),
@@ -90,7 +92,10 @@ class SearchBarTab extends StatelessWidget {
       child: Row(
         children: [
           IconButton(
-            icon: const Icon(Icons.search, color: AppColors.lightGrey4,),
+            icon: const Icon(
+              Icons.search,
+              color: AppColors.lightGrey4,
+            ),
             onPressed: () {
               // Handle search icon press
             },
@@ -137,12 +142,12 @@ class ListTabView extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              color: selectedIndex == index ? Colors.blue : Colors.transparent,
+              color: selectedIndex == index ? AppColors.accentColorBlue : AppColors.white,
             ),
             child: Text(
               item,
               style: TextStyle(
-                color: selectedIndex == index ? Colors.white : Colors.black,
+                color: selectedIndex == index ? AppColors.white : AppColors.lightGrey4,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -187,4 +192,3 @@ class BottomTabBar extends StatelessWidget {
     );
   }
 }
-
